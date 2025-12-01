@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 1: Original Audio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <div class="w-64 bg-gray-800 p-6 sidebar">
+            <h2 class="text-2xl font-bold mb-6">Processing Steps</h2>
+            <ul class="space-y-4">
+                <li class="text-blue-400 font-semibold">1. Original Audio</li>
+                <li class="text-gray-400">2. Downsampling</li>
+                <li class="text-gray-400">3. Fourier Transform</li>
+                <li class="text-gray-400">4. Noise Filtering</li>
+            </ul>
+        </div>
+        <div class="flex-1 p-8 overflow-y-auto">
+            <h1 class="text-4xl font-bold mb-6">Step 1: Original Audio</h1>
+            <p class="text-lg mb-4">Below is the waveform and playback of the uploaded or sample audio.</p>
+            <p class="text-md mb-4"><strong>Nyquist-Shannon Theorem</strong>: \( f_s \geq 2 f_{\text{max}} \). Samples audio at 44.1 kHz to capture frequencies up to 20 kHz without aliasing.</p>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <audio controls class="w-full mb-4">
+                    <source src="{{ url_for('static', filename=audio_path) }}" type="audio/wav">
+                </audio>
+                <img src="data:image/png;base64,{{ plot }}" alt="Original Audio Waveform" class="w-full rounded">
+                <a href="{{ url_for('step2') }}" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 transition">Next: Downsampling</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
