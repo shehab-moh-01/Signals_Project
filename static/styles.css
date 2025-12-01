@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+h1, h2, p {
+    animation: fadeIn 0.5s ease-in;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+button, a {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, a:hover {
+    transform: translateY(-2px);
+}
+
+img {
+    animation: slideIn 0.5s ease-in;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+audio {
+    filter: brightness(1.2);
+}
+
+.sidebar {
+    animation: slideInLeft 0.5s ease-in;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+    }
+    .w-64 {
+        width: 100%;
+        height: auto;
+    }
+    .flex-1 {
+        padding: 1rem;
+    }
+}
